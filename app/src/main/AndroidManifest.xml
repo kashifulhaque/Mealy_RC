@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="tkzy.mealy_rc">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/mealy_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/mealy_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"
+            />
+        <activity
+            android:name=".ListOfBoardersActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/list_boarders"
+            android:parentActivityName=".DashboardActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".UserProfileActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/user_profile"
+            android:parentActivityName=".DashboardActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".AccountSettingsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/account_settings"
+            android:parentActivityName=".DashboardActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".SupportActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/support_activity"
+            android:parentActivityName=".DashboardActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".DeleteAccountActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/delete_activity"
+            android:parentActivityName=".DashboardActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".DashboardActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/dashboard_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".KeepInBackground"
+            android:exported="false" />
+    </application>
+
+</manifest>

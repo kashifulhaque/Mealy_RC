@@ -1,0 +1,163 @@
+<resources>
+
+
+    <!-- App Name -->
+    <string name="app_name">Mealy</string>
+
+
+    <!-- General -->
+    <string name="login">Login</string>
+    <string name="list_boarders">List of Boarders</string>
+    <string name="user_profile">User Profile</string>
+
+
+    <!-- Common items -->
+    <string name="bed">Bed:</string>
+    <string name="room">Room:</string>
+    <string name="building">Building:</string>
+
+
+    <!-- Menu -->
+    <string name="account_settings">Account Settings</string>
+    <string name="manage_guests">Manage your Guests</string>
+    <string name="help_support">Help and Support</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="set_manager">Set Manager</string>
+
+
+    <!-- Main Activity -->
+    <string name="mealy_logo">Mealy Logo</string>
+
+
+    <!-- Account Settings Activity -->
+    <string name="upload_dp">Upload your Profile Picture</string>
+    <string name="choose">Choose</string>
+    <string name="upload">Upload</string>
+    <string name="done">Done</string>
+    <string name="name">Name:</string>
+    <string name="college_name">College Name:</string>
+    <string name="phone_number">Phone Number (Should not be changed):</string>
+    <string name="enter_name">Enter your name here</string>
+    <string name="enter_room_number">Enter your room number here</string>
+    <string name="enter_college_name">Enter the name of your college</string>
+    <string name="save">Save</string>
+    <string name="warning">WARNING</string>
+    <string name="warning_message">
+        Your DAY and NIGHT Meal will be turned OFF upon changing Account Settings. Also your Number of Guests will reset back to 0 (Zero).\nYou will have to enable your meal and add guests again.
+    </string>
+    <string name="incomplete">
+        WELCOME \n \n
+        Please fill your details here and press the SAVE button. Then restart the app.
+    </string>
+
+
+    <!-- Dashboard Activity -->
+    <string name="dashboard_activity">Dashboard</string>
+    <string name="boarder">Boarder</string>
+    <string name="manager">Manager</string>
+    <string name="gs">GS</string>
+    <string name="meal_status">MEAL STATUS</string>
+    <string name="meal_status_change_success">
+        Meal Status Changed Successfully!
+    </string>
+    <string name="meal_status_change_failure">
+        Meal Status Changing Failed!
+    </string>
+    <string name="save_meal">Save Meal</string>
+    <string name="meal_status_boarder">Meal Status of Boarders</string>
+    <string name="click_support_devs">Click here to support the developers</string>
+    <string name="night_meal">Night Meal:</string>
+    <string name="day_meal">Day Meal:</string>
+
+
+    <!-- Delete Account Activity -->
+    <string name="delete_activity">Delete Account</string>
+    <string name="read_before_delete">
+        Read this before deleting your account
+    </string>
+    <string name="delete_details">
+        You should delete your Account only when you\'re about to leave this Hostel. If you happen to delete your Account by mistake, while still being a boarder at the hostel, there is no way to get your data back. You will have to create your account again.\n\n\n\nBy clicking the button below, you can raise a ticket to delete your Account which may take up to 7 days!
+    </string>
+    <string name="i_understand">I understand. Delete my Account</string>
+    <string name="account_deletion_soon">Your Account will be deleted soon.</string>
+
+
+    <!-- Support Activity -->
+    <string name="support_activity">Help &amp; Support</string>
+    <string name="tkzy_logo">TKZY Logo</string>
+    <string name="about_us">
+        We are a duo of developers working in harmony to make a difference, even if it is small.
+        You can help and support us by simply watching a video by clicking the button below.
+    </string>
+    <string name="watch_video">Watch Video</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="fb_icon">Facebook Icon</string>
+    <string name="like_fb">
+        <a href="https://www.facebook.com/tkzydevelopers">Like us on Facebook</a>
+    </string>
+    <string name="twitter_icon">Twitter Icon</string>
+    <string name="follow_twitter">
+        <a href="https://twitter.com/TKZYDevelopers">Follow us on Twitter</a>
+    </string>
+    <string name="mail_icon">Mail Icon</string>
+    <string name="mail_us">Write to us!</string>
+    <string name="made_with">Made with</string>
+    <string name="in_india">in India</string>
+    <string name="developed_by">Developed by TKZY</string>
+    <string name="powered_by">Powered by Google Firebase</string>
+    <string name="heart">Heart</string>
+
+
+    <!-- User Profile Activity -->
+    <string name="day">Day</string>
+    <string name="night">Night</string>
+    <string name="bed_no_colon">Bed</string>
+    <string name="balance">Balance: </string>
+    <string name="room_no_colon">Room</string>
+    <string name="building_no_colon">Building</string>
+
+
+    <!-- Set Manager Dialog -->
+    <string name="set_manager_phone">Enter Manager\'s Phone Number: (Add +91 prefix if not present already)</string>
+    <string name="enter_phone_number">+919876543210</string>
+
+
+    <!-- Manage Guests Dialog -->
+    <string name="your_current_guests">You currently have: </string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="zero">0</string>
+    <string name="guests">Guests</string>
+
+
+    <!-- List of Boarders Layout -->
+    <string name="d">D</string>
+    <string name="n">N</string>
+
+
+    <!-- Firebase -->
+    <string name="firebase_web_host">tkzy-meal-manager.firebaseapp.com</string>
+    <string name="dbnode_users">users</string>
+    <string name="dbnode_user_ids">user_ids</string>
+
+    <!-- Google AdMob -->
+    <string name="test_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_app_id">ca-app-pub-8400601956246937~2227195324</string>
+    <string name="banner_ad_id">ca-app-pub-8400601956246937/9722541964</string>
+
+
+    <!-- Spinner Data -->
+    <string-array name="beds">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+    </string-array>
+
+    <string-array name="buildings">
+        <item>New</item>
+        <item>Old</item>
+    </string-array>
+
+</resources>

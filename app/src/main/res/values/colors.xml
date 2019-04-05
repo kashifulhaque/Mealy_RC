@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ActionBar colour -->
+    <color name="colorPrimary">@color/matte_black</color>
+
+    <!-- Status Bar colour -->
+    <color name="colorPrimaryDark">@color/matte_black</color>
+
+    <!-- Button accent colour / Switch 'ON' position colour -->
+    <color name="colorAccent">#4bc76e</color>
+
+    <!-- Firebase colours -->
+    <color name="firebase_navy">#2C384A</color>
+
+    <!-- Discord colours -->
+    <color name="matte_black">#393f43</color>
+    <color name="midnight_black">#2E2E2E</color>
+    <color name="grey_light">#99AAB5</color>
+
+    <!-- Colours found from Canva -->
+    <color name="shadow">#2A3132</color>
+    <color name="crevice">#46211A</color>
+    <color name="thunder_cloud">#505160</color>
+    <color name="deep_aqua">#003B46</color>
+    <color name="blue_black">#021C1E</color>
+    <color name="blue_pine">#324851</color>
+    <color name="pine">#34675C</color>
+    <color name="dark_navy">#011A27</color>
+    <color name="deep_purple">#363237</color>
+    <color name="indigo">#2D4262</color>
+
+</resources>

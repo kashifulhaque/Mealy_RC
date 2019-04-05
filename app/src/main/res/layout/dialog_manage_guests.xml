@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/raleway"
+        android:text="@string/your_current_guests"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <Button
+            android:padding="4dp"
+            android:id="@+id/btDecreaseGuests"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/btn_circular"
+            android:gravity="center"
+            android:text="@string/minus"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvNumberOfGuests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/zero"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <Button
+            android:padding="4dp"
+            android:id="@+id/btIncreaseGuests"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/btn_circular"
+            android:gravity="center"
+            android:text="@string/plus"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="@string/guests"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+</LinearLayout>
