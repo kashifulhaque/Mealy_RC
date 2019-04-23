@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,8 +14,10 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +28,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import tkzy.mealy_rc.R;
+import tkzy.mealy_rc.models.PreviousMeal;
 import tkzy.mealy_rc.models.User;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -136,7 +140,7 @@ public class UserProfileActivity extends AppCompatActivity {
         mBed.setText(user.getBedNumber());
         mBuilding.setText(user.getBuilding());
         mRoom.setText(user.getRoomNumber());
-        mGuests.setText("2");
+        mGuests.setText(user.getNumberOfGuests());
 
         if (user.getDayMealON()) {
             Glide.with(this).load(R.drawable.ic_check).into(mDay);
@@ -149,6 +153,26 @@ public class UserProfileActivity extends AppCompatActivity {
         } else {
             Glide.with(this).load(R.drawable.ic_wrong).into(mNight);
         }
+
+        setCurrentMeal2PreviousMeal();
+    }
+
+    private void setCurrentMeal2PreviousMeal() {
+        PreviousMeal previousMeal = new PreviousMeal(user.getDayMealON(), user.getNightMealON());
+
+        FirebaseDatabase.getInstance().getReference().child("previous_meal")
+                .child(userPhoneNumber)
+                .setValue(previousMeal)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                    }
+                });
     }
 
     private void initializeWidgets() {
@@ -161,6 +185,21 @@ public class UserProfileActivity extends AppCompatActivity {
         mDay = findViewById(R.id.ivBoarderDayMeal);
         mNight = findViewById(R.id.ivBoarderNightMeal);
         mProfilePicture = findViewById(R.id.civProfilePicture);
+
+        mGuests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showGuestMealDialog();
+            }
+        });
+    }
+
+    private void showGuestMealDialog() {
+        ViewGuestMealStatusDialog guestMealStatusDialog = new ViewGuestMealStatusDialog();
+        Bundle args = new Bundle();
+        args.putString("phoneNumber", userPhoneNumber);
+        guestMealStatusDialog.setArguments(args);
+        guestMealStatusDialog.show(getSupportFragmentManager(), "Guest Meal Status");
     }
 
     private void getDataFromIntent() {

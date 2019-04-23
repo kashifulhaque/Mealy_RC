@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:baselineAligned="false"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tvDayMealGuestsUserProfile"
+            android:textSize="36sp"
+            android:textColor="#000"
+            android:text=""
+            android:fontFamily="@font/electrolize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="#F00"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/day"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tvNightMealGuestsUserProfile"
+            android:textSize="36sp"
+            android:textColor="#000"
+            android:text=""
+            android:fontFamily="@font/electrolize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="#F00"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/night"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

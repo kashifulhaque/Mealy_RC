@@ -15,6 +15,8 @@
     <string name="bed">Bed:</string>
     <string name="room">Room:</string>
     <string name="building">Building:</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
 
 
     <!-- Menu -->
@@ -100,6 +102,9 @@
     <string name="follow_twitter">
         <a href="https://twitter.com/TKZYDevelopers">Follow us on Twitter</a>
     </string>
+    <string name="privacy_policy">
+        Privacy Policy
+    </string>
     <string name="mail_icon">Mail Icon</string>
     <string name="mail_us">Write to us!</string>
     <string name="made_with">Made with</string>
@@ -140,11 +145,13 @@
     <string name="firebase_web_host">tkzy-meal-manager.firebaseapp.com</string>
     <string name="dbnode_users">users</string>
     <string name="dbnode_user_ids">user_ids</string>
+    <string name="dbnode_guest_meal">guest_meal</string>
 
     <!-- Google AdMob -->
     <string name="test_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="admob_app_id">ca-app-pub-8400601956246937~2227195324</string>
     <string name="banner_ad_id">ca-app-pub-8400601956246937/9722541964</string>
+    <string name="interstitial_ad_id">ca-app-pub-8400601956246937/3135680796</string>
 
 
     <!-- Spinner Data -->

@@ -71,10 +71,37 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_condensed_regular"
         android:text="@string/guests"
         android:textAlignment="center"
         android:textSize="24sp" />
+
+    <Switch
+        android:id="@+id/switchDayMealGuest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="@string/day_meal"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+    <Switch
+        android:id="@+id/switchNightMealGuest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="@string/night_meal"
+        android:textColor="#000"
+        android:textSize="16sp" />
 
 </LinearLayout>

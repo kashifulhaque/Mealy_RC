@@ -2,10 +2,10 @@
 <resources>
 
     <!-- ActionBar colour -->
-    <color name="colorPrimary">@color/matte_black</color>
+    <color name="colorPrimary">@color/dark_navy</color>
 
     <!-- Status Bar colour -->
-    <color name="colorPrimaryDark">@color/matte_black</color>
+    <color name="colorPrimaryDark">@color/dark_navy</color>
 
     <!-- Button accent colour / Switch 'ON' position colour -->
     <color name="colorAccent">#4bc76e</color>
@@ -21,6 +21,7 @@
     <!-- Colours found from Canva -->
     <color name="shadow">#2A3132</color>
     <color name="crevice">#46211A</color>
+    <color name="dark_crevice">#361914</color>
     <color name="thunder_cloud">#505160</color>
     <color name="deep_aqua">#003B46</color>
     <color name="blue_black">#021C1E</color>
@@ -28,6 +29,7 @@
     <color name="pine">#34675C</color>
     <color name="dark_navy">#011A27</color>
     <color name="deep_purple">#363237</color>
-    <color name="indigo">#2D4262</color>
+    <color name="indigo">#9BA7BE</color>
+    <color name="gay_white">#FFF</color>
 
 </resources>

@@ -96,7 +96,7 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:text="@string/room_no_colon"
                     android:textAllCaps="true"
-                    android:textColor="@color/grey_light"
+                    android:textColor="#FF0000"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -107,7 +107,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:background="@color/colorAccent" />
+                android:background="#000" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -131,7 +131,7 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:text="@string/building_no_colon"
                     android:textAllCaps="true"
-                    android:textColor="@color/grey_light"
+                    android:textColor="#FF0000"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -142,7 +142,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:background="@color/colorAccent" />
+                android:background="#000" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -166,7 +166,7 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:text="@string/bed_no_colon"
                     android:textAllCaps="true"
-                    android:textColor="@color/grey_light"
+                    android:textColor="#FF0000"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -177,7 +177,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:background="@color/colorAccent" />
+                android:background="#000" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -201,7 +201,7 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:text="@string/guests"
                     android:textAllCaps="true"
-                    android:textColor="@color/grey_light"
+                    android:textColor="#FF0000"
                     android:textSize="16sp" />
 
             </LinearLayout>

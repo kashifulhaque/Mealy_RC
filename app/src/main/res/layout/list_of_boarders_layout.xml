@@ -4,7 +4,8 @@
     android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="8dp">
+    android:paddingBottom="1dp"
+    android:background="#000000">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cvListOfBoarders"
@@ -15,159 +16,160 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvRoomOfBoarder"
-                    android:layout_width="42dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway"
-                    android:text=""
-                    android:textAlignment="center"
-                    android:textColor="#000"
-                    android:textSize="32sp" />
-
-                <TextView
-                    android:id="@+id/tvBedNumberOfBoarder"
-                    android:layout_width="16dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginLeft="4dp"
-                    android:fontFamily="@font/raleway"
-                    android:text=""
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="222dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvNameOfBoarder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway"
-                    android:text=""
-                    android:textAllCaps="true"
-                    android:textColor="#000"
-                    android:textSize="16sp" />
+                android:orientation="horizontal"
+                android:padding="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvRoomOfBoarder"
+                        android:layout_width="42dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:text="@string/building"
-                        android:textSize="16sp" />
+                        android:fontFamily="@font/raleway"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="#FF0000"
+                        android:textSize="32sp" />
 
                     <TextView
-                        android:id="@+id/tvBuildingOfBoarder"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvBedNumberOfBoarder"
+                        android:layout_width="16dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:layout_marginLeft="4dp"
-                        android:fontFamily="@font/roboto_condensed_bold"
+                        android:fontFamily="@font/raleway"
                         android:text=""
-                        android:textColor="#000"
-                        android:textSize="16sp" />
+                        android:textSize="20sp" />
 
-                    <ImageView
-                        android:id="@+id/ivHasGuest"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:contentDescription="@string/guests"
-                        android:src="@drawable/ic_guest" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvNumberOfGuests"
+                        android:id="@+id/tvNameOfBoarder"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
-                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:fontFamily="@font/raleway"
                         android:text=""
+                        android:textAllCaps="true"
                         android:textColor="#000"
                         android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_condensed_regular"
+                            android:text="@string/building"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tvBuildingOfBoarder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:fontFamily="@font/roboto_condensed_bold"
+                            android:text=""
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/ivHasGuest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:contentDescription="@string/guests"
+                            android:src="@drawable/ic_guest" />
+
+                        <TextView
+                            android:id="@+id/tvNumberOfGuests"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:fontFamily="@font/roboto_condensed_regular"
+                            android:text=""
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_dark_round">
 
-                <LinearLayout
+                <TextView
+                    android:layout_margin="4dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:textColor="#FFF"
+                    android:text="@string/day"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:id="@+id/tvDayOfBoarder"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:text="@string/d"
-                        android:textColor="#000" />
-
-                    <ImageView
-                        android:id="@+id/ivDayMealOfBoarder"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:contentDescription="@string/day_meal"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:scaleType="center" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvDayMealStatus"
+                    android:layout_margin="4dp"
+                    android:fontFamily="@font/raleway"
+                    android:textColor="#FFF"
+                    android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:id="@+id/tvNightOfBoarder"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:text="@string/n"
-                        android:textColor="#000" />
+                <View
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="#FFF" />
 
-                    <ImageView
-                        android:id="@+id/ivNightMealOfBoarder"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:contentDescription="@string/night_meal"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:scaleType="center" />
+                <TextView
+                    android:layout_margin="4dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:textColor="#FFF"
+                    android:text="@string/night"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvNightMealStatus"
+                    android:layout_margin="4dp"
+                    android:fontFamily="@font/raleway"
+                    android:textColor="#FFF"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 

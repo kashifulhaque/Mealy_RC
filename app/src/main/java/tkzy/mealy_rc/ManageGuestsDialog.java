@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,12 +20,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import tkzy.mealy_rc.models.GuestMeal;
 import tkzy.mealy_rc.models.User;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class ManageGuestsDialog extends AppCompatDialogFragment {
 
     // Widgets
+    private Switch mDayMeal, mNightMeal;
     private Button mMinus, mPlus;
     private TextView mGuests;
     private int guestCount;
@@ -55,7 +58,7 @@ public class ManageGuestsDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        listener.addGuests(mGuests.getText().toString());
+                        listener.addGuests(mGuests.getText().toString(), mDayMeal.isChecked(), mNightMeal.isChecked());
 
                     }
                 });
@@ -89,6 +92,42 @@ public class ManageGuestsDialog extends AppCompatDialogFragment {
 
             }
         });
+
+        Query guestMealQuery = FirebaseDatabase.getInstance().getReference()
+                .child(getString(R.string.dbnode_guest_meal))
+                .orderByKey()
+                .equalTo(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber());
+
+        guestMealQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                    GuestMeal guestMealDetails = singleSnapshot.getValue(GuestMeal.class);
+
+                    if (guestMealDetails != null) {
+                        if (guestMealDetails.isDayMeal()) {
+                            mDayMeal.setChecked(true);
+                        } else {
+                            mDayMeal.setChecked(false);
+                        }
+
+                        if (guestMealDetails.isNightMeal()) {
+                            mNightMeal.setChecked(true);
+                        } else {
+                            mNightMeal.setChecked(false);
+                        }
+                    } else {
+                        mDayMeal.setChecked(false);
+                        mNightMeal.setChecked(false);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -106,6 +145,8 @@ public class ManageGuestsDialog extends AppCompatDialogFragment {
         mMinus = view.findViewById(R.id.btDecreaseGuests);
         mPlus = view.findViewById(R.id.btIncreaseGuests);
         mGuests = view.findViewById(R.id.tvNumberOfGuests);
+        mDayMeal = view.findViewById(R.id.switchDayMealGuest);
+        mNightMeal = view.findViewById(R.id.switchNightMealGuest);
 
         guestCount = Integer.parseInt(mGuests.getText().toString());
 
@@ -131,7 +172,7 @@ public class ManageGuestsDialog extends AppCompatDialogFragment {
     }
 
     public interface ManageGuestListener {
-        void addGuests(String numberOfGuests);
+        void addGuests(String numberOfGuests, boolean day, boolean night);
     }
 
 }

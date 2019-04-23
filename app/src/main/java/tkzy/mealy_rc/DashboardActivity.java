@@ -18,6 +18,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -28,7 +31,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 import tkzy.mealy_rc.R;
+import tkzy.mealy_rc.models.GuestMeal;
+import tkzy.mealy_rc.models.PreviousMeal;
 import tkzy.mealy_rc.models.User;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -50,9 +57,10 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
 
     // Variables
     private boolean dayMeal, nightMeal;
+    private boolean previousDayMeal, previousNightMeal;
 
     // Google
-//    private AdView adView;
+    private InterstitialAd mInterstitial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,20 +70,39 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
         // Keep the App running in the background to recieve FCM notifications
         startTheService();
 
-        // Initialize the Components of this Activity
-        initializeComponents();
-
         // Check if the Account is set for deletion
         accountDeletionCheck();
 
+        // Initialize the Components of this Activity
+        initializeComponents();
+
         // Load the ad
-        //loadAd();
+        mInterstitial = new InterstitialAd(this);
+        mInterstitial.setAdUnitId("ca-app-pub-8400601956246937/3135680796");
+
+        mInterstitial.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitial.loadAd(new AdRequest.Builder().build());
+            }
+
+        });
+
+        // Check the meal window and disable those buttons accordingly
+        checkMealWindow();
+
     }
 
-    /*private void loadAd() {
-        adView = findViewById(R.id.adViewDashboard);
-        adView.loadAd(new AdRequest.Builder().build());
-    }*/
+    private void checkMealWindow() {
+        Calendar currentTime = Calendar.getInstance();
+        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
+
+        if (!(hour >= 18 && hour <= 22)) {
+            mSaveMeal.setEnabled(false);
+        }
+
+    }
 
     private void startTheService() {
         Intent intent = new Intent(this, KeepInBackground.class);
@@ -153,6 +180,11 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
     private void saveMeal() {
         takeDataBeforeSavingMeal();
 
+        // Check if current meal is not the same as previous meal.
+        if (users.getDayMealON() != previousDayMeal || users.getNightMealON() != previousNightMeal) {
+            savePreviousMeal();
+        }
+
         FirebaseDatabase.getInstance().getReference()
                 .child(getString(R.string.dbnode_users))
                 .child(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber())
@@ -179,6 +211,26 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
                 });
     }
 
+    private void savePreviousMeal() {
+        PreviousMeal previousMeal = new PreviousMeal(previousDayMeal, previousNightMeal);
+
+        FirebaseDatabase.getInstance().getReference().child("previous_meal")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber())
+                .setValue(previousMeal)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(DashboardActivity.this, "Previous meal saved", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(DashboardActivity.this, "Failed to save previous meal", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     private void showMealSavedSuccessfullyDialog() {
 
         AlertDialog dialog = new AlertDialog.Builder(DashboardActivity.this).create();
@@ -191,6 +243,9 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if (mInterstitial.isLoaded()) {
+                            mInterstitial.show();
+                        }
                     }
 
                 }
@@ -502,7 +557,7 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
     }
 
     @Override
-    public void addGuests(String numberOfGuests) {
+    public void addGuests(String numberOfGuests, boolean dayMealGuest, boolean nightMealGuest) {
 
         FirebaseDatabase.getInstance().getReference()
                 .child(getString(R.string.dbnode_users))
@@ -519,6 +574,25 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(DashboardActivity.this, "Try adding Guests again", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        GuestMeal guest = new GuestMeal(dayMealGuest, nightMealGuest);
+
+        FirebaseDatabase.getInstance().getReference()
+                .child(getString(R.string.dbnode_guest_meal))
+                .child(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber())
+                .setValue(guest)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(DashboardActivity.this, "Guest meal status modified", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(DashboardActivity.this, "Guest meal status change failed", Toast.LENGTH_SHORT).show();
                     }
                 });
 

@@ -62,6 +62,25 @@ public class AccountSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account_settings);
 
         initialize();
+        getUserProfilePicture();
+    }
+
+    private void getUserProfilePicture() {
+        StorageReference profilePicture = FirebaseStorage.getInstance().getReference()
+                .child("users/profile_pictures/" + FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber() + ".jpg");
+
+        profilePicture.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(AccountSettingsActivity.this).load(uri).into(mProfilePicture);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AccountSettingsActivity.this,
+                        "No profile picture uploaded yet!", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void initialize() {

@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,23 +24,29 @@ public class BoarderAdapter extends RecyclerView.Adapter<BoarderAdapter.BoarderV
     private ArrayList<String> phone;
     private ArrayList<String> guests;
     private ArrayList<String> building;
-    private ArrayList<Boolean> day;
-    private ArrayList<Boolean> night;
+    private ArrayList<String> day;
+    private ArrayList<String> night;
     private Context mContext;
+
+    // Variables
+    private ArrayList<Boolean> isMealChanged;
 
     // Constructor
     public BoarderAdapter(Context mContext, ArrayList<String> name, ArrayList<String> room,
-                          ArrayList<String> bed, ArrayList<String> building, ArrayList<Boolean> day,
-                          ArrayList<Boolean> night, ArrayList<String> guests, ArrayList<String> phone) {
+                          ArrayList<String> bed, ArrayList<String> building,
+                          ArrayList<String> guests, ArrayList<String> phone,
+                          ArrayList<String> day, ArrayList<String> night, ArrayList<Boolean> isMealChanged) {
         this.name = name;
         this.room = room;
         this.bed = bed;
         this.building = building;
-        this.day = day;
-        this.night = night;
         this.guests = guests;
         this.mContext = mContext;
         this.phone = phone;
+        this.day = day;
+        this.night = night;
+
+        this.isMealChanged = isMealChanged;
     }
 
     // This method is used to create the view and inflate it with values
@@ -62,18 +67,16 @@ public class BoarderAdapter extends RecyclerView.Adapter<BoarderAdapter.BoarderV
         holder.mBed.setText(bed.get(position));
         holder.mName.setText(name.get(position));
         holder.mBuilding.setText(building.get(position));
-
-        if (day.get(position))
-            holder.mDay.setBackgroundResource(R.drawable.ic_check);
-        else
-            holder.mDay.setBackgroundResource(R.drawable.ic_wrong);
-
-        if (night.get(position))
-            holder.mNight.setBackgroundResource(R.drawable.ic_check);
-        else
-            holder.mNight.setBackgroundResource(R.drawable.ic_wrong);
+        holder.mDay.setText(day.get(position));
+        holder.mNight.setText(night.get(position));
 
         holder.mGuests.setText(guests.get(position));
+
+        if (isMealChanged.get(position)) {
+            holder.mParent.setBackgroundColor(mContext.getResources().getColor(R.color.colorAccent));
+        } else {
+            holder.mParent.setBackgroundColor(mContext.getResources().getColor(R.color.gay_white));
+        }
 
         // onClickListener for every item in the RecyclerView
         holder.mParent.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +104,7 @@ public class BoarderAdapter extends RecyclerView.Adapter<BoarderAdapter.BoarderV
     public class BoarderViewHolder extends RecyclerView.ViewHolder {
 
         // Widgets
-        private TextView mRoom, mBed, mName, mBuilding, mGuests;
-        private ImageView mDay, mNight;
+        private TextView mRoom, mBed, mName, mBuilding, mGuests, mDay, mNight;
         private LinearLayout mParent;
 
         public BoarderViewHolder(View itemView) {
@@ -112,10 +114,10 @@ public class BoarderAdapter extends RecyclerView.Adapter<BoarderAdapter.BoarderV
             mBed = itemView.findViewById(R.id.tvBedNumberOfBoarder);
             mName = itemView.findViewById(R.id.tvNameOfBoarder);
             mBuilding = itemView.findViewById(R.id.tvBuildingOfBoarder);
-            mDay = itemView.findViewById(R.id.ivDayMealOfBoarder);
-            mNight = itemView.findViewById(R.id.ivNightMealOfBoarder);
             mGuests = itemView.findViewById(R.id.tvNumberOfGuests);
             mParent = itemView.findViewById(R.id.parent_layout);
+            mDay = itemView.findViewById(R.id.tvDayMealStatus);
+            mNight = itemView.findViewById(R.id.tvNightMealStatus);
 
         }
 
