@@ -99,7 +99,7 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
         Calendar currentTime = Calendar.getInstance();
         int hour = currentTime.get(Calendar.HOUR_OF_DAY);
 
-        if (!(hour >= 18 && hour <= 22)) {
+        if (!(hour >= 18 && hour <= 23)) {
             mSaveMeal.setEnabled(false);
         }
 
