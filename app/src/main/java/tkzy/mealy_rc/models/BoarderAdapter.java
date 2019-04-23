@@ -3,6 +3,7 @@ package tkzy.mealy_rc.models;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -105,7 +106,7 @@ public class BoarderAdapter extends RecyclerView.Adapter<BoarderAdapter.BoarderV
 
         // Widgets
         private TextView mRoom, mBed, mName, mBuilding, mGuests, mDay, mNight;
-        private LinearLayout mParent;
+        private CardView mParent;
 
         public BoarderViewHolder(View itemView) {
             super(itemView);
@@ -115,7 +116,7 @@ public class BoarderAdapter extends RecyclerView.Adapter<BoarderAdapter.BoarderV
             mName = itemView.findViewById(R.id.tvNameOfBoarder);
             mBuilding = itemView.findViewById(R.id.tvBuildingOfBoarder);
             mGuests = itemView.findViewById(R.id.tvNumberOfGuests);
-            mParent = itemView.findViewById(R.id.parent_layout);
+            mParent = itemView.findViewById(R.id.cvListOfBoarders);
             mDay = itemView.findViewById(R.id.tvDayMealStatus);
             mNight = itemView.findViewById(R.id.tvNightMealStatus);
 

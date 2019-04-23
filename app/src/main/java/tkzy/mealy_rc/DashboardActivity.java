@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUserMetadata;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -180,8 +181,11 @@ public class DashboardActivity extends AppCompatActivity implements ManageGuests
     private void saveMeal() {
         takeDataBeforeSavingMeal();
 
+        FirebaseUserMetadata metadata = FirebaseAuth.getInstance().getCurrentUser().getMetadata();
+
         // Check if current meal is not the same as previous meal.
-        if (users.getDayMealON() != previousDayMeal || users.getNightMealON() != previousNightMeal) {
+        if (users.getDayMealON() != previousDayMeal || users.getNightMealON() != previousNightMeal ||
+                metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
             savePreviousMeal();
         }
 
