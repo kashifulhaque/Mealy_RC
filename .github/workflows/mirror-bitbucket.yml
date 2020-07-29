@@ -1,0 +1,9 @@
+on: [push]
+
+  steps:
+    - uses: actions/checkout@v1
+    - uses: spyoungtech/mirror-action@master
+      with:
+        REMOTE: 'https://kashifulhaque@bitbucket.org/kashifulhaque/mealy_rc.git'
+        GIT_USERNAME: kashifulhaque
+        GIT_SSH_PRIVATE_KEY: ${{ secrets.BITBUCKET_SSH_KEY }}
